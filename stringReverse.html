@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: blueviolet;
+            display: flex;
+            height: 90vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #input,#input1{
+            margin:10px;
+            width:200px;
+            border-radius: 15px;
+            outline: none;
+            text-align: center;
+            font-weight: 700;
+            color: black;
+
+        }
+        #btn,#btn2{
+            border-radius: 15px;
+            border-bottom:3px solid blue ;
+            background-color: blueviolet;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span><h1>Check Function Sentence Reverse & Word  Reverse</h1> </span>
+        <input type="text" id="input"placeholder="Enter The Sentence"/>
+        <input type="text" id="input1"placeholder="Enter The word"/>
+        <div class="btnBox">
+        <button id="btn">Sentence-Reverse</button>
+        <button id="btn2"onclick=handler1();>Word-Reverse</button>
+        </div>
+        <div id="demo"></div>
+    </div>
+    <script>
+        let inputbox=document.getElementById("input");
+        let inputbox1=document.getElementById("input1");
+        let btnBox=document.getElementById("btn");
+        let btn1=document.getElementById("btn1");
+        btnBox.onclick=handler;
+            
+        function handler(){
+            let input=inputbox.value;
+            let str=input.toLowerCase();
+            console.log(str);
+            let string=str.split(/[#$,.?\s]+/);
+            let array=Array.from(string);
+            console.log(array);
+            let reverse=array.reverse(array);
+            console.log(reverse);
+            let reverseString=reverse.join(" ");
+            console.log(reverseString);
+            document.getElementById("demo").innerHTML=`<div><h1>${reverseString}</h1></div>`
+        }
+    
+        function handler1(){
+            let input1=inputbox1.value;
+            let word=input1.toLowerCase();
+            console.log(word);
+            let arrayWord=Array.from(word);
+            console.log(arrayWord);
+            let reverseWord=arrayWord.reverse(arrayWord);
+            console.log(reverseWord);
+            let wordReverse=reverseWord.join("");
+            console.log(wordReverse);
+            document.getElementById("demo").innerHTML=`<div><h1>${wordReverse}<h1></div>`
+        }
+    </script>
+</body>
+</html>
